@@ -1,0 +1,13 @@
+<div class="container">
+  <div>Entrez l'ordre des couleurs separés par une virgule</div>
+  <label for="colors">Colors</label>
+  <input #colors1 id="colors" class="form-control" [value]="colorValueInit"/>
+  <button class="btn btn-primary" (click)="saveColors(colors1.value)">Save Colors</button>
+</div>
+<hr/>
+<div class="container">
+  <div>Entrez l'ordre des valeurs separés par une virgule</div>
+  <label for="values">Values</label>
+  <input #values1 id="values" class="form-control" [value]="valuesValueInit"/>
+  <button class="btn btn-primary" (click)="saveValues(values1.value)">Save Values</button>
+</div>
