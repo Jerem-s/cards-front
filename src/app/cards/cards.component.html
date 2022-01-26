@@ -1,0 +1,8 @@
+<div>
+  <img width="100" *ngFor="let card of cards" [src]="getCardImgPath(card)"/>
+
+</div>
+<div>
+  <button (click)="refreshCards()">refresh hand</button>
+  <button (click)="sort()">sort</button>
+</div>
