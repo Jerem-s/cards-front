@@ -1,8 +1,13 @@
-<div>
-  <img width="100" *ngFor="let card of cards" [src]="getCardImgPath(card)"/>
-
+<div class="container">
+  <div class="row">
+    <span class="col" *ngFor="let card of cards">
+      <img [src]="getCardImgPath(card)"/>
+    </span>
+  </div>
 </div>
-<div>
-  <button (click)="refreshCards()">refresh hand</button>
-  <button (click)="sort()">sort</button>
+<div class="container">
+  <div class="row">
+    <button class="btn btn-primary" (click)="refreshCards()">refresh hand</button>
+    <button class="btn btn-secondary" (click)="sort()">sort</button>
+  </div>
 </div>

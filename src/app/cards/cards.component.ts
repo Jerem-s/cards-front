@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CardsService} from "./cards.service";
 import {Card} from "../models/card";
-import {OrderService} from "../order/order.service";
+import {OrdersService} from "../orders/orders.service";
+import {ColorCard} from "../models/color-card";
+import {ValueCard} from "../models/value-card";
 
 @Component({
   selector: 'app-cards',
@@ -11,10 +13,10 @@ import {OrderService} from "../order/order.service";
 export class CardsComponent implements OnInit {
 
   cards: Card[] = [];
-  orderColors: string[] = [];
-  orderValues: string[] = [];
+  orderColors: ColorCard[] = [];
+  orderValues: ValueCard[] = [];
 
-  constructor(private cardsService: CardsService, private orderService: OrderService) {
+  constructor(private cardsService: CardsService, private orderService: OrdersService) {
   }
 
   ngOnInit(): void {
@@ -33,8 +35,8 @@ export class CardsComponent implements OnInit {
 
   sort(): void {
     this.cards = this.orderColors?.map(orderColor => {
-      return this.cards.filter(card => card.color === orderColor).sort(
-        (cardA, cardB) => (this.orderValues.indexOf(cardA.value) - this.orderValues.indexOf(cardB.value))
+      return this.cards.filter(card => card.color === orderColor.color).sort(
+        (cardA, cardB) => (this.orderValues.map(value => value.value).indexOf(cardA.value) - this.orderValues.map(value => value.value).indexOf(cardB.value))
       )
     }).flat();
 
